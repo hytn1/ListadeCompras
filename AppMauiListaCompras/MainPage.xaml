@@ -22,9 +22,7 @@
                        Placeholder="Busca de Produtos" 
                        TextChanged="txt_search_TextChanged" />
 
-            <RefreshView x:Name="ref_carregando" 
-                         IsRefreshing="False"
-                         Refreshing="ref_carregando_Refreshing"/>
+            
 
             <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
                 <ListView.Header>
@@ -42,11 +40,11 @@
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Remover" Clicked="MenuItem_Clicked_Remover"/>
                             </ViewCell.ContextActions>
-                            <Grid RowDefinitions="Auto"
-                                  ColumnDefinitions="3*, *, *, *">
+                            <Grid ColumnDefinitions="3*, *, *, *">
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Descricao}" />
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco}" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco, StringFormat='{}{0:c}'}" />
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Total, StringFormat='{}{0:c}'}" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
